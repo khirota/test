@@ -1,0 +1,29 @@
+// 変数の初期化
+var kihonnoSizeHaba  	= 1200;	// 基本の幅
+var kihonnoSizeTakasa	= 500;	// 基本の高さ
+var nowWidth			= 0;	// 現在の幅を格納する変数
+var kahenritsu			= 0		// 基本の幅からの縮尺率
+
+/*
+ * 読み込み完了時の処理
+ */
+$(window).load(function () {
+	// 現在のウインドウ幅を取得
+	nowWidth = $('.contents').innerWidth();
+	// 縮尺率を算出
+	kahenritsu = nowWidth / kihonnoSizeHaba ;
+	// contentsクラスCSSのheightを設定
+	$('.contents').css({ 'height': kihonnoSizeTakasa * kahenritsu + 'px'});
+});
+
+/*
+ * ウインドウサイズ変更時の処理
+ */
+$(window).resize(function(){
+	// 現在のウインドウ幅を取得
+	nowWidth = $('.contents').innerWidth();
+	// 縮尺率を算出
+	kahenritsu = nowWidth / kihonnoSizeHaba ;
+	// contentsクラスCSSのheightを設定
+	$('.contents').css({ 'height': kihonnoSizeTakasa * kahenritsu + 'px'});
+});
